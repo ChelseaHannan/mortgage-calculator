@@ -9,10 +9,11 @@ import { useState } from "react";
 function App() {
 
   const [data, setData] = useState({
-    homeValue: 3000,
-    downPayment: 3000,
-    loanAmount: 3000,
-    loanTerm: 3000
+    homeValue: 3000, 
+    downPayment: 3000 * 0.2,
+    loanAmount: 3000 * 0.8,
+    loanTerm: 5,
+    interestRate: 0.05
   })
 
 
@@ -20,13 +21,13 @@ function App() {
     <div className="App">
       <Navbar />
       <Container maxWidth="xl" sx={{ mt: 4 }}>
-        <Grid container>
+        <Grid container spacing={5} alignItems='center'>
           <Grid item md={6} xs={12}>
             <SliderSelect data={data} setData={setData} />
-            <TenureSelect />
+            <TenureSelect data={data} setData={setData} />
           </Grid>
           <Grid item md={6} xs={12}>
-            <Results />
+            <Results data={data} />
           </Grid>
         </Grid>
       </Container>
